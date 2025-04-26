@@ -112,7 +112,7 @@
         <button id="barChartBtn" class="btn">Bar Chart (Platform vs Penjualan)</button>
     </div>
 
-    <div id="chart-container" class="chart-container">
+    <div id="chart-container" class="chart-container" style="display: flex; align-items: center; justify-content: center;">
         <div class="loading">Memuat data dari file CSV...</div>
     </div>
 
@@ -206,9 +206,11 @@
         // Buat elemen SVG baru
         svg = d3.select('#chart-container')
             .append('svg')
-            .attr('width', '100%')
-            .attr('height', '100%')
-            .attr('viewBox', '0 0 900 500');
+            .attr('width', '80%')
+            .attr('height', '80%')
+            .attr('display', 'flex')
+            .attr('justify-content', 'center')
+            .attr('viewBox', '0 0 900 500')
 
         // Render berdasarkan tipe grafik yang aktif
         if (activeChart === 'lineChart') {
@@ -231,7 +233,7 @@
         );
 
         const lineData = Array.from(yearlyData, ([year, sales]) => ({year, sales}))
-            .sort((a, b) => a.year - b.year); // Urutkan berdasarkan tahun
+            .sort((a, b) => a.year - b.year); // UrutkFan berdasarkan tahun
 
         // Setup margin dan dimensi
         const margin = {top: 50, right: 50, bottom: 70, left: 80};
@@ -240,7 +242,7 @@
 
         // Append grup untuk grafik dengan margin
         const g = svg.append('g')
-            .attr('transform', `translate(${margin.left},${margin.top})`);
+            .attr('transform', `translate(${margin.left + 8},${margin.top})`);
 
         // Setup skala X dan Y
         const xScale = d3.scaleLinear()
@@ -284,7 +286,7 @@
             .attr('class', 'axis-label')
             .attr('transform', 'rotate(-90)')
             .attr('x', -height / 2)
-            .attr('y', -margin.left + 20)
+            .attr('y', -margin.left)
             .style('text-anchor', 'middle')
             .text('Total Penjualan Global (Juta Unit)');
 
@@ -360,7 +362,7 @@
 
         // Append grup untuk grafik dengan margin
         const g = svg.append('g')
-            .attr('transform', `translate(${margin.left},${margin.top})`);
+            .attr('transform', `translate(${margin.left - 24},${margin.top - 12})`);
 
         // Setup skala X dan Y
         const xScale = d3.scaleLinear()
@@ -375,7 +377,12 @@
         // Tambahkan sumbu X
         g.append('g')
             .attr('transform', `translate(0,${height})`)
-            .call(d3.axisBottom(xScale));
+            .call(d3.axisBottom(xScale))
+            .selectAll('text')
+            .style('text-anchor', 'end')
+            .attr('dx', '-.8em')
+            .attr('dy', '.15em')
+            .attr('transform', 'rotate(-45)');
 
         // Tambahkan sumbu Y
         g.append('g')
@@ -385,7 +392,7 @@
         g.append('text')
             .attr('class', 'axis-label')
             .attr('x', width / 2)
-            .attr('y', height + margin.bottom - 20)
+            .attr('y', height + margin.bottom + 10)
             .style('text-anchor', 'middle')
             .text('Total Penjualan Global (Juta Unit)');
 
@@ -394,7 +401,7 @@
             .attr('class', 'axis-label')
             .attr('transform', 'rotate(-90)')
             .attr('x', -height / 2)
-            .attr('y', -margin.left + 40)
+            .attr('y', -margin.left + 70)
             .style('text-anchor', 'middle')
             .text('Platform');
 
