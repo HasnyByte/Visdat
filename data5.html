@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Top Publisher Penjualan Tertinggi</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    body { font-family: sans-serif; }
+
+    .bar {
+      fill: rgb(20, 172, 104);
+    }
+
+    .bar:hover {
+      fill: rgb(6, 120, 69);
+    }
+
+    .axis-label {
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .tooltip {
+      position: absolute;
+      background-color: white;
+      border: 1px solid #ccc;
+      padding: 6px;
+      font-size: 12px;
+      pointer-events: none;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <h2>Publisher dengan Total Penjualan Tertinggi</h2>
+  <p><strong>Bar Chart:</strong> Publisher vs. Total Penjualan (Top 10)</p>
+  <div id="bar-chart"></div>
+
+  <!-- External JS -->
+  <script src="top_publishers_sales.js"></script>
+</body>
+</html>
