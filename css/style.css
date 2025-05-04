@@ -10,7 +10,7 @@ h1 {
   margin-bottom: 20px;
 }
 
-#scatterplot {
+#scatterplot, #barchart {
   display: block;
   margin: 0 auto;
   width: 900px;
