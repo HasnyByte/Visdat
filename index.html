@@ -1,38 +1,53 @@
 <!DOCTYPE html>
 <html lang="id">
-    <head>
-        <!--testing\-->
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Visualisasi Data Penjualan Game</title>
-        <link rel="stylesheet" href="styles.css" />
-    </head>
-    <body>
-        <div class="container">
-            <h1>Visualisasi Data Penjualan Video Game Global</h1>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visualisasi Data Penjualan Game</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="container">
+    <h1>Visualisasi Data Penjualan Video Game Global</h1>
 
-            <div class="btn-container">
-                <button id="lineChartBtn" class="btn active">
-                    Line Chart (Tahun vs Penjualan)
-                </button>
-                <button id="barChartBtn" class="btn">
-                    Bar Chart (Platform vs Penjualan)
-                </button>
-            </div>
+    <!-- Tombol navigasi grafik -->
+    <div class="btn-container">
+        <button id="lineChartBtn" class="btn active">
+            Line Chart (Tahun vs Penjualan)
+        </button>
+        <button id="barChartBtn" class="btn">
+            Bar Chart (Platform vs Penjualan)
+        </button>
+        <button id="genreChartBtn" class="btn">
+            Genre Terlaris
+        </button>
+        <button id="pieChartBtn" class="btn">
+            Pie Chart Penjualan Wilayah
+        </button>
+        <button id="publisherChartBtn" class="btn">
+            Publisher Terlaris
+        </button>
+        <button id="scatterChartBtn" class="btn">
+            Korelasi Tahun vs Penjualan
+        </button>
+        <button id="groupedBarChartBtn" class="btn">
+            Game Terlaris per Wilayah
+        </button>
+    </div>
 
-            <div
-                id="chart-container"
-                class="chart-container"
-            >
-                <div class="loading">Memuat data dari file CSV...</div>
-            </div>
+    <!-- Kontainer grafik -->
+    <div id="chart-container" class="chart-container">
+        <div class="loading">Memuat data dari file CSV...</div>
+    </div>
 
-            <div class="legend" id="chart-legend"></div>
-        </div>
+    <!-- Legenda dan tooltip -->
+    <div class="legend" id="chart-legend"></div>
+</div>
 
-        <div class="tooltip" id="tooltip"></div>
+<div class="tooltip" id="tooltip"></div>
 
-        <script src="js/d3.v7.min.js"></script>
-        <script src="js/main.js"></script>
-    </body>
+<!-- Script -->
+<script src="js/d3.v7.min.js"></script>
+<script src="js/main.js"></script>
+</body>
 </html>
