@@ -1,99 +1,144 @@
+:root {
+    --background: #080808;
+    --background-rgb: 8, 8, 8;
+    --container: #fafafa;
+    --body-color: #f5f5f5;
+    --error: #fb4141;
+    --color-shamrock-50: #eafff6;
+    --color-shamrock-100: #cdfee8;
+    --color-shamrock-200: #a0fad6;
+    --color-shamrock-300: #63f2c1;
+    --color-shamrock-400: #25e2a8;
+    --color-shamrock-500: #00dfa2;
+    --color-shamrock-600: #00a477;
+    --color-shamrock-700: #008364;
+    --color-shamrock-800: #006750;
+    --color-shamrock-900: #005543;
+    --color-shamrock-950: #003027;
+}
+
+* {
+    color: var(--background);
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
-    background-color: #f5f5f5;
+    padding: 64px;
+    background-color: var(--body-color);
+}
+
+div, span, section, main {
+    transition: 160ms ease-out;
+}
+
+main {
+    flex-direction: row;
+}
+
+@media (max-width: 800px) {
+    main {
+        flex-direction: column;
+    }
 }
 
 .container {
-    max-width: 1000px;
-    margin: 0 auto;
-    background-color: white;
-    padding: 20px;
-    border-radius: 16px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--container);
+    box-shadow: 0 8px 16px rgba(var(--background-rgb), 0.2);
 }
 
-h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 30px;
+.container-head {
+    background-color: var(--color-shamrock-500);
 }
 
-.btn-container {
+.container-head p {
+    color: var(--container);
+}
+
+.main-container {
+    width: 80vw;
+}
+
+.button-container {
+    width: 25%;
+}
+
+.button-div {
     display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 800px) {
+    .button-container {
+        width: 100%;
+    }
+
+    .main-container {
+        width: 100%;
+    }
+
+    .button-div {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* maksimal 4 kolom */
+        gap: 10px;
+    }
 }
 
 .btn {
-    padding: 10px 20px;
-    margin: 0 10px;
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
+    background-color: var(--color-shamrock-500);
+    color: var(--container);
+    transition: background-color 160ms ease-out;
+    border: 1.6px solid var(--color-shamrock-500);
 }
 
 .btn:hover {
-    background-color: #45a049;
+    background-color: var(--color-shamrock-400);
+    border-color: var(--color-shamrock-400);
 }
 
 .btn.active {
-    background-color: #2e7d32;
-    font-weight: bold;
+    background-color: var(--container);
+    color: var(--color-shamrock-500);
+    border-color: var(--color-shamrock-400);
+}
+
+.option-btn {
+    background-color: var(--color-shamrock-500);
+    color: var(--container);
+    transition: background-color 160ms ease-out;
+    border: 1.6px solid var(--color-shamrock-500);
+    width: 36px;
+    padding: 2px 0px;
+    border-radius: 4px;
+    font-size: 10pt;
+    cursor: pointer;
+}
+
+.option-btn.active {
+    background-color: var(--container);
+    color: var(--color-shamrock-500);
+    border-color: var(--color-shamrock-400);
 }
 
 .chart-container {
-    width: 100%;
-    height: 500px;
-    margin-top: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .tooltip {
-    position: absolute;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    border-radius: 4px;
-    pointer-events: none;
-    font-size: 14px;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.legend {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 20px;
-}
-
-.axis-label {
-    font-size: 12px;
-    fill: #666;
-}
-
-.loading {
-    text-align: center;
-    padding: 40px;
-    font-size: 18px;
-    color: #666;
+    background-color: rgba(var(--background-rgb), 0.75);
+    color: var(--container);
+    transition: opacity 320ms ease-out;
 }
 
 .error-message {
-    text-align: center;
-    padding: 20px;
-    margin: 20px 0;
-    background-color: #ffecec;
-    color: #ff5252;
-    border-radius: 4px;
-    border: 1px solid #ff5252;
+    background-color: var(--container);
+    color: var(--error);
+    border: 1.6px solid var(--error);
+}
+
+.action-dot {
+    border: 1.6px solid var(--container);
 }

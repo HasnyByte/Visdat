@@ -1,38 +1,138 @@
 <!DOCTYPE html>
 <html lang="id">
     <head>
-        <!--testing\-->
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Visualisasi Data Penjualan Game</title>
         <link rel="stylesheet" href="styles.css" />
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     </head>
     <body>
-        <div class="container">
-            <h1>Visualisasi Data Penjualan Video Game Global</h1>
+        <main class="flex items-start justify-center gap-[20px] size-screen">
+            <div
+                id="buttonContainer"
+                class="container button-container flex flex-col items-center justify-center rounded-[16px] overflow-hidden"
+            >
+                <span
+                    class="container-head w-full flex items-center py-[12px] px-[20px]"
+                >
+                    <p class="text-[12pt] font-semibold">Tipe Chart</p>
+                </span>
+                <div
+                    class="button-div py-[20px] px-[24px] w-full gap-[12px]"
+                >
+                    <!-- (Tahun vs Penjualan) -->
+                    <button
+                        id="lineChartBtn"
+                        class="btn text-[12pt] rounded-[8px] p-[8px] cursor-pointer w-full overflow-hidden active"
+                    >
+                        Tahun vs Penjualan
+                    </button>
+                    <!-- (Platform vs Penjualan) -->
+                    <button
+                        id="barChartBtn"
+                        class="btn text-[12pt] rounded-[8px] p-[8px] cursor-pointer w-full overflow-hidden"
+                    >
+                        Platform vs Penjualan
+                    </button>
+                    <button
+                        id="barChartGenreSales"
+                        class="btn text-[12pt] rounded-[8px] p-[8px] cursor-pointer w-full overflow-hidden"
+                    >
+                        Penjualan vs Genre
+                    </button>
+                    <button
+                        id="pieChartBtn"
+                        class="btn text-[12pt] rounded-[8px] p-[8px] cursor-pointer w-full overflow-hidden"
+                    >
+                        Penjualan vs Wilayah
+                    </button>
+                    <button
+                        id="barChartTopPublisher"
+                        class="btn text-[12pt] rounded-[8px] p-[8px] cursor-pointer w-full overflow-hidden"
+                    >
+                        Top Publisher
+                    </button>
+                    <button
+                        id="scatterPlotBtn"
+                        class="btn text-[12pt] rounded-[8px] p-[8px] cursor-pointer w-full overflow-hidden"
+                    >
+                        Tahun Rilis vs Penjualan
+                    </button>
+                    <button
+                        id="multiBarChartBtn"
+                        class="btn text-[12pt] rounded-[8px] p-[8px] cursor-pointer w-full overflow-hidden"
+                    >
+                        Best Seller
+                    </button>
+                </div>
+            </div>
+            <div
+                class="container main-container rounded-[16px] overflow-hidden"
+            >
+                <span
+                    class="container-head w-full flex items-center justify-between py-[12px] px-[20px]"
+                >
+                    <p id="chart-title" class="text-[12pt] font-semibold">
+                        Visualisasi Data Penjualan Game Global
+                    </p>
+                    <span
+                        class="flex flex-row items-center justify-center gap-[8px]"
+                    >
+                        <span
+                            class="action-dot size-[16px] rounded-[32px] bg-[#FB4141] cursor-pointer"
+                        ></span>
+                        <span
+                            class="action-dot size-[16px] rounded-[32px] bg-[#FFC145] cursor-pointer"
+                        ></span>
+                        <span
+                            class="action-dot size-[16px] rounded-[32px] bg-[#5CB338] cursor-pointer"
+                            onclick="{fullSize()}"
+                        ></span>
+                    </span>
+                </span>
 
-            <div class="btn-container">
-                <button id="lineChartBtn" class="btn active">
-                    Line Chart (Tahun vs Penjualan)
-                </button>
-                <button id="barChartBtn" class="btn">
-                    Bar Chart (Platform vs Penjualan)
-                </button>
+                <script>
+                    const fullSize = () => {
+                        const buttonContainer =
+                            document.getElementById("buttonContainer");
+
+                        if (buttonContainer.style.display === "none") {
+                            buttonContainer.style.display = "flex";
+                        } else {
+                            buttonContainer.style.display = "none";
+                        }
+                    };
+                </script>
+
+                <div
+                    class="flex flex-col items-center justify-center gap-[8px] p-[20px]"
+                >
+                    <div
+                        id="chart-container"
+                        class="chart-container flex flex-col w-full h-[80%]"
+                    >
+                        <div
+                            class="loading text-[12pt] text-center opacity-[0.5] pt-[32px]"
+                        >
+                            Memuat data dari file CSV...
+                        </div>
+                    </div>
+
+                    <div
+                        class="text-center opacity-[0.5] pb-[16px] pt-[8px]"
+                        id="chart-legend"
+                    ></div>
+                </div>
             </div>
 
             <div
-                id="chart-container"
-                class="chart-container"
-            >
-                <div class="loading">Memuat data dari file CSV...</div>
-            </div>
+                class="tooltip absolute p-[12px] rounded-[8px] pointer-events-none text-[12pt] opacity-0"
+                id="tooltip"
+            ></div>
 
-            <div class="legend" id="chart-legend"></div>
-        </div>
-
-        <div class="tooltip" id="tooltip"></div>
-
-        <script src="js/d3.v7.min.js"></script>
-        <script src="js/main.js"></script>
+            <script src="js/d3.v7.min.js"></script>
+            <script src="js/main.js"></script>
+        </main>
     </body>
 </html>
