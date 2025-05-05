@@ -349,7 +349,7 @@ function renderLineChart() {
                     `Tahun: ${d.year}<br>Penjualan: ${d.sales
                         .toFixed(0)
                         .toString()
-                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} Juta`
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
                 )
                 .style("left", event.pageX + 12 + "px")
                 .style("top", event.pageY + "px")
@@ -518,7 +518,7 @@ function renderBarChart(dataLength) {
                     `Platform: ${d.platform}<br>Penjualan: ${d.sales
                         .toFixed(0)
                         .toString()
-                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} Juta`
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
                 )
                 .style("left", event.pageX + 24 + "px")
                 .style("top", event.pageY - 28 + "px")
@@ -692,7 +692,7 @@ function renderBarChartGameSales(dataLength) {
                     `Genre: ${d.genre}<br>Penjualan: ${d.total
                         .toFixed(0)
                         .toString()
-                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} Juta`
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
                 )
                 .style("left", event.pageX + 24 + "px")
                 .style("top", event.pageY - 28 + "px")
@@ -872,7 +872,7 @@ function renderBarChartTopPublisher(dataLength) {
                     `Genre: ${d.publisher}<br>Penjualan: ${d.total
                         .toFixed(0)
                         .toString()
-                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} Juta`
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
                 )
                 .style("left", event.pageX + 24 + "px")
                 .style("top", event.pageY - 28 + "px")
@@ -991,7 +991,7 @@ function renderPieChart() {
                 Penjualan: ${d.data.sales
                     .toFixed(0)
                     .toString()
-                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} juta<br>
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}<br>
                 Persentase: ${percent}%`
                 )
                 .style("top", event.pageY - 12 + "px")
@@ -1081,7 +1081,7 @@ function renderPieChart() {
         label.textContent = `${d.region}: ${d.sales
             .toFixed(0)
             .toString()
-            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")} juta`;
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
 
         item.appendChild(colorBox);
         item.appendChild(label);
@@ -1198,7 +1198,7 @@ function renderScatterPlot(dataLength) {
                 tooltip
                     .style("opacity", 0)
                     .style("top", event.pageY - 12 + "px")
-                    .html(`Year: ${d.Year}<br>Global Sales: ${d.Global_Sales}M`)
+                    .html(`Year: ${d.Year}<br>Global Sales: ${d.Global_Sales.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`)
                     .transition()
                     .ease(d3.easeCubicOut)
                     .duration(320)
@@ -1424,7 +1424,7 @@ function renderMultibarChart(dataLength) {
                     `Game: ${d.game}<br>Region: ${d.region.replace(
                         "_Sales",
                         ""
-                    )}<br>Sales: ${d.sales}M`
+                    )}<br>Sales: ${d.sales.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
                 )
                 .transition()
                 .ease(d3.easeCubicOut)
