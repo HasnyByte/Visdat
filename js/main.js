@@ -300,7 +300,7 @@ function renderLineChart() {
         .attr("x", -height / 2)
         .attr("y", -margin.left)
         .style("text-anchor", "middle")
-        .text("Total Penjualan Global (Juta Unit)");
+        .text("Total Penjualan Global");
 
     // Tambahkan judul
     const chartTitle = document.getElementById("chart-title");
@@ -390,7 +390,7 @@ function renderLineChart() {
     // Update keterangan
     document.getElementById(
         "chart-legend"
-    ).innerHTML = `Data menunjukkan total penjualan game (dalam juta unit) untuk setiap tahun rilis. Total ${lineData.length} tahun ditampilkan.`;
+    ).innerHTML = `Data menunjukkan total penjualan game untuk setiap tahun rilis. Total ${lineData.length} tahun ditampilkan.`;
 }
 
 // Fungsi untuk render Bar Chart (Platform vs Total Penjualan)
@@ -483,7 +483,7 @@ function renderBarChart(dataLength) {
         .attr("x", width / 2)
         .attr("y", height + margin.bottom + 12)
         .style("text-anchor", "middle")
-        .text("Total Penjualan Global (Juta Unit)");
+        .text("Total Penjualan Global");
 
     // Tambahkan label sumbu Y
     g.append("text")
@@ -564,7 +564,7 @@ function renderBarChart(dataLength) {
     // Update keterangan
     document.getElementById(
         "chart-legend"
-    ).innerHTML = `Data menunjukkan ${dataLength} platform teratas berdasarkan total penjualan game (dalam juta unit) dari total ${barData.length} platform.`;
+    ).innerHTML = `Data menunjukkan ${dataLength} platform teratas berdasarkan total penjualan game dari total ${barData.length} platform.`;
 }
 
 // Fungsi render barchart (Genre vs Penjualan)
@@ -657,7 +657,7 @@ function renderBarChartGameSales(dataLength) {
         .attr("x", width / 2)
         .attr("y", height + margin.bottom + 12)
         .style("text-anchor", "middle")
-        .text("Total Penjualan Global (Juta Unit)");
+        .text("Total Penjualan Global");
 
     // Tambahkan label sumbu Y
     g.append("text")
@@ -738,7 +738,7 @@ function renderBarChartGameSales(dataLength) {
     // Keterangan
     document.getElementById(
         "chart-legend"
-    ).innerHTML = `Data menampilkan ${dataLength} genre teratas berdasarkan total penjualan global (dalam juta unit).`;
+    ).innerHTML = `Data menampilkan ${dataLength} genre teratas berdasarkan total penjualan global.`;
 }
 
 // Fungsi render genre (publishre teratas)
@@ -837,7 +837,7 @@ function renderBarChartTopPublisher(dataLength) {
         .attr("x", width / 2)
         .attr("y", height + margin.bottom + 12)
         .style("text-anchor", "middle")
-        .text("Total Penjualan Global (Juta Unit)");
+        .text("Total Penjualan Global");
 
     // Tambahkan label sumbu Y
     g.append("text")
@@ -918,7 +918,7 @@ function renderBarChartTopPublisher(dataLength) {
     // Keterangan
     document.getElementById(
         "chart-legend"
-    ).innerHTML = `Data menampilkan ${dataLength} publisher teratas berdasarkan total penjualan global (dalam juta unit).`;
+    ).innerHTML = `Data menampilkan ${dataLength} publisher teratas berdasarkan total penjualan global.`;
 }
 
 // Function to render a pie chart
@@ -1241,7 +1241,7 @@ function renderScatterPlot(dataLength) {
         // Keterangan
         document.getElementById(
             "chart-legend"
-        ).innerHTML = `Data menampilkan korelasi antara tahun rilis dan total penjualan global (dalam juta unit).`;
+        ).innerHTML = `Data menampilkan korelasi antara tahun rilis dan total penjualan global.`;
     });
 }
 
